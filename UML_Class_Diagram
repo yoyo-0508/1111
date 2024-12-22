@@ -1,0 +1,34 @@
+digraph UML_Diagram {
+	WeiboProcessor [label="<<class>>
+WeiboProcessor
+-----------------
++ process_data()
++ control_flow()"]
+	DataCleaner [label="<<class>>
+DataCleaner
+-----------------
++ clean_data()
++ remove_duplicates()"]
+	WordFrequencyAnalyzer [label="<<class>>
+WordFrequencyAnalyzer
+-----------------
++ calculate_frequency()
++ extract_keywords()"]
+	KeyInformationExtractor [label="<<class>>
+KeyInformationExtractor
+-----------------
++ extract_hot_topics()
++ summarize_data()"]
+	StorageManager [label="<<class>>
+StorageManager
+-----------------
++ save_to_database()
++ save_to_csv()"]
+	WeiboProcessor -> DataCleaner [label="cleans raw data"]
+	WeiboProcessor -> WordFrequencyAnalyzer [label="analyzes word frequency"]
+	WeiboProcessor -> KeyInformationExtractor [label="extracts key info"]
+	WeiboProcessor -> StorageManager [label="stores results"]
+	DuplicateHandler [label="DuplicateHandler
++ handle_duplicates()" shape=box]
+	DataCleaner -> DuplicateHandler [label=uses]
+}
